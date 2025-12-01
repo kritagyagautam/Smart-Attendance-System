@@ -56,5 +56,24 @@
 
 
     
+.video-container {
+    display: flex;
+    justify-content: center;   /* center horizontally */
+    align-items: center;       /* center vertically */
+    margin: 30px auto;         /* vertical spacing */
+    width: 20px;              /* smaller width */
+    height: auto;
+    border: 2px solid #af4c4c;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #fff;
+}
+
+.video-container img {
+    width: 10%;               /* fill container width */
+    height: auto;              /* maintain aspect ratio */
+    border-radius: 8px;
+}
+
 
     

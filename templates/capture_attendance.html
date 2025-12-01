@@ -1,0 +1,9 @@
+<h2>Capture Attendance</h2>
+<form method="POST" action="/capture_attendance">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="text" name="roll" placeholder="ID" required>
+    <button type="submit">Capture Attendance</button>
+</form>
+
+<img src="{{ url_for('registration_video_feed') }}" width="500">
+<p>Camera feed will appear above. Admin will capture 50 images automatically after submitting the form.</p>

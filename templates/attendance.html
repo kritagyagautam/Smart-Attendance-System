@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Face Recognition Attendance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f9fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-top: 30px;
+        }
+
+        .video-container {
+            margin: 20px 0;
+            border: 3px solid #4CAF50;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+        img {
+            border-radius: 8px;
+        }
+
+        form {
+            margin-bottom: 30px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            max-width: 800px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px 15px;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e6f7ff;
+        }
+
+        .attendance-container {
+            width: 90%;
+            max-width: 900px;
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Live Attendance</h2>
+    <div class="video-container">
+        <img src="{{ url_for('video_feed') }}" width="640" height="480" alt="Live Camera Feed">
+    </div>
+
+    <form method="POST">
+        <button type="submit">Mark Attendance</button>
+    </form>
+
+    <div class="attendance-container">
+        <h3>Attendance List</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Roll</th>
+                <th>Time</th>
+            </tr>
+            {% for name, roll, time in attendance_list %}
+            <tr>
+                <td>{{ name }}</td>
+                <td>{{ roll }}</td>
+                <td>{{ time }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

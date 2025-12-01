@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register Face</title>
+    <style>
+        body { font-family: Arial; background-color: #f7f9fc; text-align: center; }
+        input, button { padding: 10px; margin: 10px; font-size: 16px; }
+        img { border: 3px solid #4CAF50; border-radius: 8px; margin-top: 20px; }
+        h2 { color: #333; }
+    </style>
+</head>
+<body>
+    <h2>Face Registration</h2>
+    <p>{{ message }}</p>
+
+    <form method="POST">
+        <input type="text" name="newusername" placeholder="Username" required>
+        <input type="text" name="newuserid" placeholder="User ID" required>
+        <button type="submit">Start Registration</button>
+    </form>
+
+    {% if message != "Enter username and user ID to register" %}
+    <div>
+        <img src="{{ url_for('registration_video_feed') }}" width="640" height="480">
+        <br>
+        <button onclick="captureFace()">Capture Face</button>
+        <p id="status"></p>
+    </div>
+    {% endif %}
+
+    <script>
+        function captureFace() {
+            fetch('/capture_face', { method: 'POST' })
+            .then(res => res.text())
+            .then(data => document.getElementById('status').innerText = data)
+            .catch(err => console.error(err));
+        }
+    </script>
+</body>
+</html>

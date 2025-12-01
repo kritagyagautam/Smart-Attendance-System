@@ -16,20 +16,29 @@
         <div class="text-center mt-4 name">
             Face Recogniser
         </div>
-        <form class="p-3 mt-3">
-            <div class="form-field d-flex align-items-center">
-                <span class="far fa-user"></span>
-                <input type="text" name="userName" id="userName" placeholder="Username">
-            </div>
-            <div class="form-field d-flex align-items-center">
-                <span class="fas fa-key"></span>
-                <input type="password" name="password" id="pwd" placeholder="Password">
-            </div>
-            <button class="btn mt-3">Sign Up</button>
-        </form>
-        <div class="text-center fs-6">
+        <form class="p-3 mt-3" method="POST" action="/signup">
+    <div class="form-field d-flex align-items-center">
+        <input type="text" name="username" placeholder="Username" required>
+    </div>
+
+    <div class="form-field d-flex align-items-center">
+        <input type="password" name="password" placeholder="Password" required>
+    </div>
+
+    <button class="btn mt-3" type="submit">Sign Up</button>
+</form>
+
+<div class="text-center mt-3">
+    <a href="/admin-login">Already have an account? Login</a>
+</div>
+
+        <!-- <div class="text-center fs-6">
             <a href="#">Forget password?</a> or <a href="./adminlogin.html">Login up</a>
-        </div>
+        </div> -->
+                                    <!-- <div class="text-center">
+                        <button type="submit" id="login" class="btn btn-primary-outline">Login</button>
+                    </div> -->
+                    
     </div>
 </body>
 </html>
